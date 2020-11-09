@@ -7,6 +7,7 @@ package fish.payara.poc.arquilliansuite.test;
 
 import fish.payara.poc.arquilliansuite.HelloWorld;
 import fish.payara.poc.arquilliansuite.test.helloWorld.HelloWorldTest;
+import org.eu.ingwar.tools.arquillian.extension.suite.annotations.ArquillianSuiteDeployment;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -15,7 +16,7 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
  *
  * @author cuba
  */
-//@ArquillianSuiteDeployment
+@ArquillianSuiteDeployment
 public class Deployments {
     
     @Deployment()

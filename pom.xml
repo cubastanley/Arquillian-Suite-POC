@@ -43,6 +43,14 @@
             <artifactId>payara-client-ee8</artifactId>
             <version>2.3.1</version>
         </dependency>
+        
+        <!--Arquillian Suite Extension -->
+        <dependency>
+            <groupId>org.eu.ingwar.tools</groupId>
+            <artifactId>arquillian-suite-extension</artifactId>
+            <version>1.2.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     
     <properties>
