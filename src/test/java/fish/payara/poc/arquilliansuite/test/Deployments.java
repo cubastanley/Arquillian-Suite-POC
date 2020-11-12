@@ -9,6 +9,7 @@ import fish.payara.poc.arquilliansuite.HelloExtra;
 import fish.payara.poc.arquilliansuite.HelloWorld;
 import fish.payara.poc.arquilliansuite.test.helloWorld.HelloExtraTest;
 import fish.payara.poc.arquilliansuite.test.helloWorld.HelloWorldTest;
+import org.eu.ingwar.tools.arquillian.extension.suite.annotations.ArquillianSuiteDeployment;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -17,9 +18,9 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
  *
  * @author cuba
  */
-//@ArquillianSuiteDeployment
+@ArquillianSuiteDeployment
 public class Deployments {
-    
+
     @Deployment(name = "World", order = 1)
     public static JavaArchive deployWorld() {
         return ShrinkWrap.create(JavaArchive.class)
@@ -27,7 +28,7 @@ public class Deployments {
                 .addClass(HelloWorld.class)
                 .addClass(HelloWorldTest.class);
     }
-    
+
     @Deployment(name = "Extra", order = 2)
     public static JavaArchive deployExtra() {
         return ShrinkWrap.create(JavaArchive.class)
