@@ -11,7 +11,7 @@
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
-                <version>1.6.0.Final</version>
+                <version>1.1.14.Final</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -34,14 +34,20 @@
         </dependency>
         <dependency>
             <groupId>fish.payara.arquillian</groupId>
-            <artifactId>arquillian-payara-server-remote</artifactId>
+            <artifactId>arquillian-payara-server-managed</artifactId>
             <version>2.3.1</version>
         </dependency>
-        
         <dependency>
-            <groupId>fish.payara.arquillian</groupId>
-            <artifactId>payara-client-ee8</artifactId>
-            <version>2.3.1</version>
+            <groupId>org.eu.ingwar.tools</groupId>
+            <artifactId>arquillian-suite-extension</artifactId>
+            <version>1.2.0</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
         </dependency>
         
         <!--Arquillian Suite Extension -->
@@ -66,7 +72,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <systemPropertyVariables>
-                        <javaEEServer>payara-remote</javaEEServer>
+                        <bindHttpPort>8213</bindHttpPort>
+                        <javaVmArquments>-Ddeployment.resource.validation=false</javaVmArquments>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
