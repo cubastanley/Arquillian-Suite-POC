@@ -5,6 +5,7 @@
  */
 package fish.payara.poc.arquilliansuite.test.helloWorld;
 
+import fish.payara.poc.arquilliansuite.HelloExtra;
 import fish.payara.poc.arquilliansuite.HelloWorld;
 import fish.payara.poc.arquilliansuite.test.Deployments;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
@@ -18,13 +19,13 @@ import org.junit.runner.RunWith;
  * @author cuba
  */
 @RunWith(Arquillian.class)
-public class HelloWorldTest extends Deployments {
+public class HelloExtraTest extends Deployments {
     
     @Test
-    @OperateOnDeployment("World")
+    @OperateOnDeployment("Extra")
     public void testSayHello() {
-        HelloWorld helloWorld = new HelloWorld();
-        assertTrue(helloWorld.sayHello().equals("Hello World!"));
+        HelloExtra helloExtra = new HelloExtra();
+        assertTrue(helloExtra.sayHello(2, 4).equals("Hello! a + b = 6"));
     }
     
 }
