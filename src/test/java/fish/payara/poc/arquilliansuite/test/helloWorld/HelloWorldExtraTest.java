@@ -6,6 +6,7 @@
 package fish.payara.poc.arquilliansuite.test.helloWorld;
 
 import fish.payara.poc.arquilliansuite.HelloWorldExtra;
+import fish.payara.poc.arquilliansuite.test.Deployments;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.junit.Arquillian;
 import static org.junit.Assert.assertTrue;
@@ -17,7 +18,7 @@ import org.junit.runner.RunWith;
  * @author cuba
  */
 @RunWith(Arquillian.class)
-public class HelloWorldExtraTest {
+public class HelloWorldExtraTest extends Deployments {
     
     @Test
     @OperateOnDeployment("Extra")

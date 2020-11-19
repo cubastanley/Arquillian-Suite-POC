@@ -7,12 +7,14 @@ package fish.payara.poc.arquilliansuite.test;
 
 import fish.payara.poc.arquilliansuite.HelloExtra;
 import fish.payara.poc.arquilliansuite.HelloWorld;
+import fish.payara.poc.arquilliansuite.HelloWorldExtra;
 import fish.payara.poc.arquilliansuite.test.helloWorld.HelloExtraTest;
+import fish.payara.poc.arquilliansuite.test.helloWorld.HelloWorldExtraTest;
 import fish.payara.poc.arquilliansuite.test.helloWorld.HelloWorldTest;
 import org.eu.ingwar.tools.arquillian.extension.suite.annotations.ArquillianSuiteDeployment;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
 
 /**
  *
@@ -22,19 +24,21 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 public class Deployments {
 
     @Deployment(name = "World", order = 1)
-    public static JavaArchive deployWorld() {
-        return ShrinkWrap.create(JavaArchive.class)
+    public static WebArchive deployWorld() {
+        return ShrinkWrap.create(WebArchive.class, "world.war")
                 .addClass(Deployments.class)
                 .addClass(HelloWorld.class)
                 .addClass(HelloWorldTest.class);
     }
 
     @Deployment(name = "Extra", order = 2)
-    public static JavaArchive deployExtra() {
-        return ShrinkWrap.create(JavaArchive.class)
+    public static WebArchive deployExtra() {
+        return ShrinkWrap.create(WebArchive.class, "extra.war")
                 .addClass(Deployments.class)
                 .addClass(HelloExtra.class)
-                .addClass(HelloExtraTest.class);
+                .addClass(HelloExtraTest.class)
+                .addClass(HelloWorldExtra.class)
+                .addClass(HelloWorldExtraTest.class);
     }
     
 }
