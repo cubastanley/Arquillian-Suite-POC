@@ -21,7 +21,6 @@ import org.junit.runner.RunWith;
 public class HelloExtraTest extends Deployments {
     
     @Test
-    @OperateOnDeployment("extra")
     public void testSayHello() {
         HelloExtra helloExtra = new HelloExtra();
         assertTrue(helloExtra.sayHello(2, 4).equals("Hello! a + b = 6"));
