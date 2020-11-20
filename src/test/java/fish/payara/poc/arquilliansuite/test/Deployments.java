@@ -20,7 +20,14 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
  * basic samples
  * 
  * No. of deployments with suite: 2
- * No. of deployments without suite: 3
+ * No. of deployments without suite: 6
+ * 
+ * Importantly the large number of deployments without suite is
+ * due to the use of a Deployments class which all test classes extend
+ * (results in all deployments within the Deployments class being
+ * deployed regardless of them being used or now within the test class)
+ * 
+ * No. of deployments without Deployments class: 3
  * 
  * @author cuba
  */
