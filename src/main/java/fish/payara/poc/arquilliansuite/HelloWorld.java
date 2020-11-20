@@ -15,4 +15,10 @@ public class HelloWorld {
         return "Hello World!";
     }
     
+    public String helloSum(int a, int b) {
+        int total = a + b;
+        return "Hello! The sum is " + total;
+    }
+    
+    
 }

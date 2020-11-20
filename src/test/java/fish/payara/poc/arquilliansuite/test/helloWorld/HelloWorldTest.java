@@ -7,9 +7,8 @@ package fish.payara.poc.arquilliansuite.test.helloWorld;
 
 import fish.payara.poc.arquilliansuite.HelloWorld;
 import fish.payara.poc.arquilliansuite.test.Deployments;
-import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.junit.Arquillian;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -21,7 +20,6 @@ import org.junit.runner.RunWith;
 public class HelloWorldTest extends Deployments {
     
     @Test
-    @OperateOnDeployment("World")
     public void testSayHello() {
         HelloWorld helloWorld = new HelloWorld();
         assertTrue(helloWorld.sayHello().equals("Hello World!"));

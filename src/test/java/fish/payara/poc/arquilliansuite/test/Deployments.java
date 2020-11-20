@@ -7,10 +7,8 @@ package fish.payara.poc.arquilliansuite.test;
 
 import fish.payara.poc.arquilliansuite.HelloExtra;
 import fish.payara.poc.arquilliansuite.HelloWorld;
-import fish.payara.poc.arquilliansuite.HelloWorldExtra;
 import fish.payara.poc.arquilliansuite.test.helloWorld.HelloExtraTest;
 import fish.payara.poc.arquilliansuite.test.helloWorld.HelloWorldExtraTest;
-import fish.payara.poc.arquilliansuite.test.helloWorld.HelloWorldTest;
 import org.eu.ingwar.tools.arquillian.extension.suite.annotations.ArquillianSuiteDeployment;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -18,26 +16,30 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 
 /**
  *
+ * A Class for containing all deployments for these
+ * basic samples
+ * 
+ * No. of deployments with suite: 2
+ * No. of deployments without suite: 3
+ * 
  * @author cuba
  */
 @ArquillianSuiteDeployment
 public class Deployments {
 
-    @Deployment(name = "World", order = 1)
+    @Deployment(name = "world")
     public static WebArchive deployWorld() {
         return ShrinkWrap.create(WebArchive.class, "world.war")
                 .addClass(Deployments.class)
-                .addClass(HelloWorld.class)
-                .addClass(HelloWorldTest.class);
+                .addPackage(HelloWorld.class.getPackage());
     }
 
-    @Deployment(name = "Extra", order = 2)
+    @Deployment(name = "extra") // Gets deployed twice WITHOUT suite as used by two test classes
     public static WebArchive deployExtra() {
         return ShrinkWrap.create(WebArchive.class, "extra.war")
                 .addClass(Deployments.class)
                 .addClass(HelloExtra.class)
                 .addClass(HelloExtraTest.class)
-                .addClass(HelloWorldExtra.class)
                 .addClass(HelloWorldExtraTest.class);
     }
     

@@ -6,11 +6,10 @@
 package fish.payara.poc.arquilliansuite.test.helloWorld;
 
 import fish.payara.poc.arquilliansuite.HelloExtra;
-import fish.payara.poc.arquilliansuite.HelloWorld;
 import fish.payara.poc.arquilliansuite.test.Deployments;
+import static org.junit.Assert.*;
 import org.jboss.arquillian.container.test.api.OperateOnDeployment;
 import org.jboss.arquillian.junit.Arquillian;
-import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,7 +21,7 @@ import org.junit.runner.RunWith;
 public class HelloExtraTest extends Deployments {
     
     @Test
-    @OperateOnDeployment("Extra")
+    @OperateOnDeployment("extra")
     public void testSayHello() {
         HelloExtra helloExtra = new HelloExtra();
         assertTrue(helloExtra.sayHello(2, 4).equals("Hello! a + b = 6"));
